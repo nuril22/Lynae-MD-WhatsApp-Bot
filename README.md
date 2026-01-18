@@ -382,7 +382,7 @@ Edit `nodemon.json` to change auto-restart configuration:
 
 ## 📄 License
 
-MIT License - free to use for personal or commercial projects.
+Copyright (c) 2026 VTX Group. Licensed under the MIT License.
 
 ---
 
@@ -423,6 +423,6 @@ If you have questions or need help:
 
 **⭐ If this project helps you, don't forget to give it a star! ⭐**
 
-Made with ❤️ by Nuril Ardhi
+Made with ❤️ by VTX Group
 
 </div>
