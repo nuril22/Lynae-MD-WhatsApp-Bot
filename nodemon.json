@@ -1,0 +1,14 @@
+{
+  "watch": ["."],
+  "ignore": [
+    "index.js",
+    "node_modules",
+    "LynaeSession",
+    "*.log",
+    ".git"
+  ],
+  "ext": "js,json",
+  "exec": "node index.js",
+  "verbose": true
+}
+
