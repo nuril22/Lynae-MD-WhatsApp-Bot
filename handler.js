@@ -279,12 +279,31 @@ const handler = async (lynae, m) => {
                             .filter(jid => jid && typeof jid === 'string' && jid.includes('@s.whatsapp.net') && !jid.includes('@g.us'))
                     }
                     
+                    // Helper to unwrap message content (handle ViewOnce)
+                    const getActualMessage = (content) => {
+                        if (!content) return null
+                        if (content.viewOnceMessage?.message) return content.viewOnceMessage.message
+                        if (content.viewOnceMessageV2?.message) return content.viewOnceMessageV2.message
+                        return content
+                    }
+
                     // Extract image from message (for sticker command)
                     let imageMessage = null
-                    if (msg.message.imageMessage) {
-                        imageMessage = msg.message.imageMessage
-                    } else if (msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage) {
-                        imageMessage = msg.message.extendedTextMessage.contextInfo.quotedMessage.imageMessage
+                    const msgContent = getActualMessage(msg.message)
+                    const quotedContent = getActualMessage(msg.message.extendedTextMessage?.contextInfo?.quotedMessage)
+                    
+                    if (msgContent?.imageMessage) {
+                        imageMessage = msgContent.imageMessage
+                    } else if (quotedContent?.imageMessage) {
+                        imageMessage = quotedContent.imageMessage
+                    }
+                    
+                    // Extract video from message (for tomp3 command)
+                    let videoMessage = null
+                    if (msgContent?.videoMessage) {
+                        videoMessage = msgContent.videoMessage
+                    } else if (quotedContent?.videoMessage) {
+                        videoMessage = quotedContent.videoMessage
                     }
                     
                     // Check if chat is group - check both remoteJid and chat format
@@ -491,6 +510,7 @@ const handler = async (lynae, m) => {
                         quotedText: quotedText, // Add quoted message text content
                         mentions: mentions,
                         image: imageMessage,
+                        video: videoMessage,
                         // Group-related properties
                         isGroup: isGroup,
                         isAdmin: isAdmin,

@@ -68,6 +68,9 @@ export const config = {
         '6281234567890@s.whatsapp.net', // Replace with your number
     ],
     
+    // Genius API Key (Required for .lyrics command)
+    geniusApiKey: 'YOUR_GENIUS_API_KEY_HERE',
+    
     // Bot Bio
     bio: '🤖 Lynae-MD Bot\n\nA powerful WhatsApp bot built with Baileys\n\nType .help for commands'
 }
@@ -122,6 +125,17 @@ npm run dev
    - Once successful, the bot will connect and be ready to use!
 
 **Note:** After first pairing, the session is saved in `LynaeSession/` folder. You won't need to pair again unless you delete this folder.
+
+### 🔑 Setting up Genius API (Lyrics)
+
+To use the `.lyrics` command, you need a Genius API Key:
+
+1. Go to Genius API Clients and sign in.
+2. Click **"New API Client"**.
+3. Fill in the App Name (e.g., "LynaeBot") and Website URL (you can use `http://example.com`).
+4. Click **Save**.
+5. Copy the **"Client Access Token"** (this is your API Key).
+6. Paste it into your `config.js` file in the `geniusApiKey` field.
 
 ---
 

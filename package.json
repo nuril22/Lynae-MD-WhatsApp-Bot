@@ -25,6 +25,7 @@
     "@whiskeysockets/baileys": "npm:@rexxhayanasi/elaina-baileys",
     "axios": "^1.13.2",
     "chalk": "^4.1.2",
+    "cheerio": "^1.1.2",
     "jimp": "^0.22.12",
     "node-webpmux": "^3.2.1",
     "pino": "^10.1.0",

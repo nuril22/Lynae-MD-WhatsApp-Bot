@@ -22,6 +22,9 @@ export const config = {
         categories: ['Fun', 'Custom']
     },
     
+    // Genius API Configuration (for lyrics command)
+    geniusApiKey: '', // Get your API Key at https://genius.com/api-clients
+    
     // Bot Bio
     bio: '🤖 Lynae-MD Bot\n\nA powerful WhatsApp bot built with Baileys\n\nType .help for commands'
 }
